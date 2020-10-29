@@ -1,14 +1,14 @@
 <!-- Header -->
 <nav id="navbar" class="navbar navbar-expand-md grey lighten-5 z-depth-1 navbar-light">
     <div class="container-fluid">
-    <a class="navbar-brand " href="/" style="font-weight: lighter;"><span style="font-weight: bold">An</span> Nguyen</a>
+    <a class="navbar-brand" href="/" style="font-weight: lighter; font-size: 24px"><span style="font-weight: bold">An</span> Nguyen</a>
       <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto flex-nowrap">
             {% for nav in site.data.nav %}
-            <li class="nav-item" style="padding-right: 20px;"><a href="{{nav.link}}" class="nav-link">{{nav.name}}</a></li>
+            <li class="nav-item" style="padding-right: 20px; font-size: 24px"><a href="{{nav.link}}" class="nav-link">{{nav.name}}</a></li>
             {% endfor %}
         </ul>
       </div>
