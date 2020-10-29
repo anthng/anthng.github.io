@@ -4,7 +4,7 @@ address: HCMC, VN"
 
 description: "Hello I'm An"
 baseurl: "/"
-url: "anthng.github.io" 
+url: "https://anthng.github.io/" 
 github_username:  anthng
 
 plugins:
