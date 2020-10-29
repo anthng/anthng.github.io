@@ -3,9 +3,11 @@ author: "An Nguyen"
 address: HCMC, VN"
 
 description: "Hello I'm An"
-baseurl: "/"
+baseurl: ""
 url: "https://anthng.github.io/" 
 github_username:  anthng
+
+encoding: UTF-8
 
 plugins:
   - jekyll-feed
