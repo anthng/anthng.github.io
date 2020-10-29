@@ -54,7 +54,11 @@
         {% if  page.title  == 'Timeline'%}
             <link rel="stylesheet" href="{{ site.url }}/assets/css/timeline.css">
         {% endif %}
-
+        <script>
+            console.log(
+                "\t\t\tI want to take a surprise for you. I feel very happy when\n\t\t\tyou press F-12/ Ctrl+Shift+I on your browser in order to\n\t\t\tinspect the source code.\n\n\t\t\tIf you feel interested in these, please follow me on GitHub,\n\t\t\tand give me stars for my own projects. Many thanks.\n\n\t\t\tMy github: github.com/anthng\n\n\t\t\t“Whatever you are, be a good one.” ― Abraham Lincoln"
+            )
+        </script>
     </head>
 
     <body>
@@ -65,5 +69,24 @@
     <footer style="padding: 2px; margin-top: -15px;">
         {% include footer.html %}
     </footer>
-
+    <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i
+            class="fas fa-chevron-up"></i></a>
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 50) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+            // scroll body to 0px on click
+            $('#back-to-top').click(function () {
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 400);
+                return false;
+            });
+        });
+    </script>
 </html>

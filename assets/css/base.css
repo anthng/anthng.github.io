@@ -1,19 +1,39 @@
 body {
-    height:100vh;
-    font-family: 'Open Sans', sans-serif;
-  }
+  height:100vh;
+  font-family: 'Open Sans', sans-serif;
+}
 
 #navbar {
   margin: 0% 25%;
   color: #808080;
 }
 
-  a::selection,
-  span::selection {
-    background: #ffb7b7;
+a::selection,
+span::selection {
+  background: #ffb7b7;
+}
+
+a::selection,
+span::-moz-selection {
+  background: #ffb7b7;
+}
+
+p {
+  margin: 0px !important;
   }
   
-  a::selection,
-  span::-moz-selection {
-    background: #ffb7b7;
-  }
+  li {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.back-to-top {
+  background-color: transparent;
+  border-style: none;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  display: none;
+}
