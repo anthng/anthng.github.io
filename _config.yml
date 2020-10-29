@@ -5,7 +5,7 @@ address: HCMC, VN"
 description: "Hello I'm An"
 baseurl: ""
 url: "https://anthng.github.io/" 
-github_username:  anthng
+github_username: anthng
 
 encoding: UTF-8
 
