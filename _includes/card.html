@@ -1,0 +1,55 @@
+<div class="card">
+    <div class="row">
+        <div class="col-md-5 col-s-6">
+            {% if project contains 'photos'%}
+                {% for photo in project.photos %}
+                    <a target = "_blank" href="{{ site.url }}/{{photo}}"><img class="card-img-top" style="margin-bottom: 10px;" src="{{ site.url }}/{{photo}}" alt="Project" /></a>
+                {% endfor %}
+            {% else %}
+                <img class="card-img-top" src="{{ site.url }}/assets/images/project.png" alt="Project">
+            {% endif %}
+        </div>
+
+        <div class="col-md-7 col-s-6">
+            <div class="card-body">
+                <h3 class="card-title">{{project.title}}</h3>
+                <h6><small>{{project.time}}</small></h6>
+                <hr>
+                {% if project contains 'description' %}
+                    {% for description in project.description %}
+
+                        {% if description contains 'text'  %}
+                            <p class="card-text">{{description.text}}</p>
+                        {% endif %}
+                        {% if description contains 'tasks' %}
+                            <ul>
+                                {% for task in description.tasks%}
+                                    <li>{{task}}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-s-12">
+            <div class="card-body">
+                {% if project contains 'github'%}
+                    <a href={{project.github}} class="card-link"> <i class="fab fa-github title-logo"></i></a>
+                {% endif %}
+
+                {% if project contains 'demo' %}
+                    <a href={{project.demo}} class="card-link">View Demo</i></a>
+                {% endif %}
+
+                {% for tag in project.tags %}
+                    <span class="badge badge-primary">{{tag}}</span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+---
+layout: default
+title: Projects
+--- 
+
+{% contentfor head %}
+<link rel="stylesheet" href="{{ site.url }}/assets/css/project.css">
+{% endcontentfor %}
+
+{% contentfor body %}
+<div class="container">
+  {% for project in site.data.projects | limit: 5%}
+    {% include card.html %}
+  {% endfor %}
+
+</div>
+{% endcontentfor %}

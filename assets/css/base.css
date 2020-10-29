@@ -1,0 +1,19 @@
+body {
+    height:100vh;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+#navbar {
+  margin: 0% 25%;
+  color: #808080;
+}
+
+  a::selection,
+  span::selection {
+    background: #ffb7b7;
+  }
+  
+  a::selection,
+  span::-moz-selection {
+    background: #ffb7b7;
+  }

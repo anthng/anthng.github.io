@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <title>{{site.title}} | {{ page.title }}</title>
+
+    <!--fonts-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel='stylesheet'
+          href='https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Source+Code+Pro:400,500,600,700'
+          type='text/css' media='screen'/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    
+
+    <link rel="shortcut icon" href="{{ "/images/favicon.png" | prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ site.url }}/assets/css/base.css">
+
+    {% contentblock head %}
+</head>
+
+<body>
+    {% include header.html %}
+
+    {% contentblock body %}
+</body>
+
+<footer style="padding: 2px; margin-top: -15px;">
+    {% include footer.html %}
+</footer>
+
+</html>

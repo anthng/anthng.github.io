@@ -1,0 +1,11 @@
+title: Anthng
+author: "An Nguyen"
+address: HCMC, VN"
+
+description: "Hello I'm An"
+baseurl: "/"
+url: "anthng.github.io" 
+github_username:  anthng
+
+plugins:
+  - jekyll-feed

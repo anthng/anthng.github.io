@@ -1,0 +1,51 @@
+---
+layout: default
+title: Timeline
+--- 
+
+{% contentfor head %}
+<link rel="stylesheet" href="{{ site.url }}/assets/css/timeline.css">
+{% endcontentfor %}
+
+{% contentfor body %}
+<div class="container">
+    <div class="row">
+      <div class="col s12 m4 l8 justify-content-center">
+        <div class="timeline">
+          {% for entry in site.data.timeline | limit : 9%}
+          <div class="entry">
+            <div class="left">
+              <h3>{{entry.time}}</h3>
+              <p>
+                {% if entry contains 'title' %}
+                  <i class="title">{{entry.title}}</i>
+                  {% if entry.company contains 'name' %}
+                    <i style="color: black;"> | </i>
+                  {% endif %}
+                {% endif %}
+                {% if entry.company contains 'name' %}
+                  {% if entry.company contains 'url' %}
+                    <a href="{{entry.company.url}}"><i class="company max-text">{{entry.company.name}}</i></a>
+                  {% else %}
+                    <i class="company">{{entry.company.name}}</i>
+                  {% endif %}
+                {% endif %}
+              </p>
+            </div>
+            <div class="right">
+              {% for text in entry.description.text %}
+               <p>{{text}}</p>
+              {% endfor %}
+              <ul>
+                {% for item in entry.description.items %}
+                <li>{{item}}</li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endcontentfor %}

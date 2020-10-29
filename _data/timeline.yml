@@ -1,0 +1,19 @@
+-
+  time: "2017"
+  title: "Student"
+  company:
+    name: "<br> HCMC University of Transport"
+    url: "https://ut.edu.vn/en/"
+  description:
+    text: "Started university with B. Eng. in IT."
+    items:
+
+    
+-
+  time: "2014 - 2017"
+  title: "Student"
+  company:
+    name: "Thanh Binh 2 <br> High School"
+    url: "http://thanhbinh2.dongthap.edu.vn"
+  description:
+    text: "Finished high school at here."

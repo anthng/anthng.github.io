@@ -1,0 +1,28 @@
+---
+permalink: /404.html
+layout: default
+---
+
+{% contentfor  head %}
+<link rel="stylesheet" href="{{ site.url }}/assets/css/home.css">
+{% endcontentfor %}
+
+{% contentfor body %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="top-text" style="margin-top:-5%">
+            <p class="text-title desktop-view"><a target="_self" href="/">404 NOT FOUND</a></p>
+            <p class="text-title mobile-view"><a target="_self" href="../">404 NOT FOUND</a></p>
+            <div class="social-icons">
+                <a href="https://github.com/anthng">
+                    <i class="fab fa-github title-logo"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/anthng/">
+                    <i class="fab fa-linkedin title-logo"></i>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endcontentfor %}
