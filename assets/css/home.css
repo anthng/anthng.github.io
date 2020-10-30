@@ -26,7 +26,6 @@ body {
   
  .container-fluid {
     max-width: none;
-    margin: -5px 0px 0px -5px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -91,8 +90,10 @@ body {
   }
   
   .text-content {
+    width: 90%;
     text-align: justify;
-    margin:20px 0px 20px 0px;
+    font-family: Inconsolata;
+    padding: 5px 25px 10px 25px;
   }
   
   @media only screen and (max-width: 1094px) {
