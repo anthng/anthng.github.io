@@ -1,6 +1,6 @@
 .timeline {
   width: 100%;
-  max-width: 70%;
+  max-width: 90%;
   background: #fff;
   padding: 100px 50px;
   margin:0 auto;
@@ -120,7 +120,7 @@
 
 @media only screen and (max-width: 600px) {
   .timeline {
-    width: 60%;
+    width: 75%;
   }
   .entry {
     padding-bottom: 100px;
