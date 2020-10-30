@@ -19,7 +19,7 @@ title: Timeline
                 {% endif %}
                 {% if entry.company contains 'name' %}
                   {% if entry.company contains 'url' %}
-                    <a href="{{entry.company.url}}"><i class="company max-text">{{entry.company.name}}</i></a>
+                    <a target= "_blank" href="{{entry.company.url}}"><i class="company max-text">{{entry.company.name}}</i></a>
                   {% else %}
                     <i class="company">{{entry.company.name}}</i>
                   {% endif %}
