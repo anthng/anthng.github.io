@@ -6,8 +6,10 @@ description: "Hello I'm An"
 baseurl: ""
 url: "https://anthng.github.io/" 
 github_username: anthng
-
+markdown: kramdow
 encoding: UTF-8
+paginate: 3
+paginate_path: "/blogs/page:num/"
 
 plugins:
   - jekyll-feed
