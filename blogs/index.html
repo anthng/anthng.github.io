@@ -1,0 +1,34 @@
+---
+layout: default
+title: Blogs
+---
+
+<div class="container">
+  {% for post in site.posts %}
+  <div class="card">
+    <div class="row">
+      <div class="col-md-12 col-s-12">
+        {% if post contains 'img'%}
+        <img class="card-img-top" style="margin-bottom: 10px;" src="{{post.img}}" alt="Image" /></a>
+        {% else %}
+        <img class="card-img-top" src="{{ site.url }}/assets/images/project.png" alt="Image">
+        {% endif %}
+      </div>
+      <div class="col-md-12 col-s-12">
+        <div class="card-body">
+          <h1 class="card-title"><a href={{post.url}} class="title">{{post.title}}</a></h1>
+          <h6><small>{{ post.date | date_to_string }}</small></h6>
+          <hr>
+          <p class="card-text">{{post.description}}</p>
+          {% for tag in post.category %}
+            <span class="badge badge-primary">{{tag}}</span>
+          {% endfor %}
+        </div>
+        <div class="card-body" style="text-align: right;">
+          <a href={{post.url}} class="card-link">Read More</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
