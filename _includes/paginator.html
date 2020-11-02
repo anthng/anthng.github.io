@@ -43,6 +43,8 @@
     margin-left: 0.625rem
   }
 </style>
+
+{% if paginator.total_pages > 1 %}
 <nav class="pagination" role="navigation">
   {% if paginator.previous_page %}
   <a class="newer-posts" href="{{ site.baseurl }}{{ paginator.previous_page_path }}" title="Newer posts">&laquo;
@@ -53,3 +55,4 @@
   <a class="older-posts" href="{{ site.baseurl }}{{ paginator.next_page_path }}" title="Older posts">Next &raquo;</a>
   {% endif %}
 </nav>
+{% endif %}
