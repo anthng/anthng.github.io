@@ -1,0 +1,55 @@
+<style>
+  nav.pagination {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    text-align: center;
+  }
+
+  nav.pagination .newer-posts,
+  nav.pagination .older-posts,
+  nav.pagination .page-number {
+    font-size: 11px;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 12px;
+    color: black;
+    border: 2px solid #808080;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+  nav.pagination .newer-posts:hover,
+  nav.pagination .older-posts:hover {
+    border: 0.125rem solid #00aa85;
+    color: #00aa85;
+  }
+
+  nav.pagination .newer-posts.faded,
+  nav.pagination .older-posts.faded {
+    color: gray;
+    border: 0.125rem solid gray
+  }
+
+  nav.pagination .newer-posts.faded a,
+  nav.pagination .older-posts.faded a {
+    color: gray
+  }
+
+  nav.pagination .newer-posts .fa {
+    margin-right: 0.625rem
+  }
+
+  nav.pagination .older-posts .fa {
+    margin-left: 0.625rem
+  }
+</style>
+<nav class="pagination" role="navigation">
+  {% if paginator.previous_page %}
+  <a class="newer-posts" href="{{ site.baseurl }}{{ paginator.previous_page_path }}" title="Newer posts">&laquo;
+    Previous</a>
+  {% endif %}
+  <span class="page-number">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+  <a class="older-posts" href="{{ site.baseurl }}{{ paginator.next_page_path }}" title="Older posts">Next &raquo;</a>
+  {% endif %}
+</nav>

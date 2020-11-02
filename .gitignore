@@ -1,0 +1,10 @@
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+_data
+_drafts
+Gemfile.lock
+Gemfile
+_includes/categories.html
