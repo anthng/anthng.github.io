@@ -14,8 +14,8 @@ plugins:
   - jekyll-gist
 
 markdown: kramdown
-permalink:     pretty
-paginate: 3
+permalink: pretty
+paginate: 4
 paginate_path: "blogs/page:num/"
 
 toc:
