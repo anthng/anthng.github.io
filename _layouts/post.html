@@ -59,7 +59,7 @@ layout: default
   {{ content }}
 
   <hr>
-
+<!-- 
   <h3 class="related-post-title">Related Posts</h3>
   <ul>
   {% for post in site.related_posts | where_exp:"post", "post.url != page.url" | sample:4 %}
@@ -69,10 +69,9 @@ layout: default
     </a>
   </li>
   {% endfor %}
-  </ul>
+  </ul> -->
   {% if page.comments %}
   {% include disqus.html %}
   {% endif %}
-
 
 </div>
