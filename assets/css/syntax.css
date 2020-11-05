@@ -1,4 +1,4 @@
-.highlight, .highlight pre, .highlight table { background: rgb(37, 42, 52) !important; color: #dadada !important; }
+.highlight, .highlight pre, .highlight table { margin-top: 2px !important; margin-bottom: 2px !important; padding: 5px !important;background: rgb(37, 42, 52) !important; color: #dadada !important; }
 .highlight .hll { background-color: #49483e !important; }
 .highlight .c { color: #d0ff82 !important; } /* Comment */
 .highlight .err { color: #960050 !important; background-color: #1e0010 !important; } /* Error */
