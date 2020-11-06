@@ -32,11 +32,11 @@ It's too bad every package is installed in the default system of Python. The ven
 
 ## 3. Creating Virutal Environment
 
-There are many ways to create a virtual environment, which include using **virtualenv** or **venv** or **conda**. If you're using Python 2, you have to install the *virtualenv* with *pip*.
+There are many ways to create a virtual environment, which include using **virtualenv** or **venv** or **conda**. If you're using Python 2, you have to install the *virtualenv* with *pip* or use *conda*. In this article, I just mention to create venv via **virtualenv** and **venv**.
 
 ### 3.1 Virtualenv package
 
-For Python 2, you have to install virtualenv to create vitural environment. Python 3 also can use this way. 
+For Python 2, you have to install virtualenv to create vitural environment. Python 3 can also use this way. 
 
 In the terminal of Windows (I use powershell):
 {% highlight cmd %}
@@ -124,3 +124,7 @@ pip install -r requirements.txt
 ```
 
 You should also add the venv to ```.gitignore``` file to exclude this folder if you use Git.
+
+## 6. Conclusion
+
+That’s all being needed to start a project with Python Virtual Environment. Lastly, I highly recommend creating a venv before starting any project, which will help you become more professional.
