@@ -67,6 +67,7 @@ layout: default
     }
   </style>
 </head>
+
 <div class="container" style="width: 70%; margin-top: 2.5rem">
   <h1>{{ page.title }}</h1>
   <p class="meta">{{ page.date | date_to_string }}</p></small>
@@ -77,17 +78,7 @@ layout: default
   {{ content }}
 
   <hr>
-<!-- 
-  <h3 class="related-post-title">Related Posts</h3>
-  <ul>
-  {% for post in site.related_posts | where_exp:"post", "post.url != page.url" | sample:4 %}
-  <li class ="post">
-    <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
-      <h4 class="post-title">{{ post.title }}</h4>
-    </a>
-  </li>
-  {% endfor %}
-  </ul> -->
+
   {% if page.comments %}
   {% include disqus.html %}
   {% endif %}
