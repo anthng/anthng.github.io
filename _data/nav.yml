@@ -1,10 +1,8 @@
-- name: "Blogs"
-  link: "/blogs"
+- name: "Projects"
+  link: "/projects"
 
 - name: "Timeline"
   link: "/timeline"
 
-- name: "Projects"
-  link: "/projects"
-
-
+- name: "About"
+  link: "/about"
