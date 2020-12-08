@@ -16,7 +16,9 @@ plugins:
 markdown: kramdown
 permalink: pretty
 paginate: 4
-paginate_path: "blogs/page:num/"
+# paginate_path: "blogs/page:num/"
+paginate_path: "/page:num/"
+
 
 toc:
   ordered_list: true
