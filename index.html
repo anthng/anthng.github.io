@@ -1,79 +1,34 @@
 ---
 layout: default
-title: Home
---- 
+title: Blogs
+---
 
-<div class="container-fluid">
-    <div class="wrapper fixed-wrapper">
-        <section id="terminal">
-            <div id="terminal-container">
-                <div class="terminal">
-                    <div class="window-title">
-                        <div class="win-buttons">
-                            <a id="close" class="button" href="javascript:close_window();"></a>
-                            <a id="min" class="button" href="javascript:max_min_button()"></a>
-                            <a id="max" class="button" href="#full"></a>
-                        </div>
-                        <span class="title">anthng@anthng: ~</span>
-                    </div>
-                    <div class="message">
-                        <span class='prompt'><span class='user'>anthng</span><span class="at">@anthng:</span><span
-                                class="path">/home/anthng/</span>&#126;<span class="caret">&#36;</span></span>
-                        <span id="typed"></span>
-                        <form>><span class="caret">$</span>&nbsp;<input type="text" name="response" /></form>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    </div>
-    <div class="wrapper scroll-wrapper">
-        <div class="top-text">
-            <p class="text-title desktop-view">An-Thien</p>
-            <p class="text-title desktop-view">Nguyen</p>
-            <p class="text-title mobile-view">An Nguyen</p>
-            <div class="social-icons">
-                <a href="https://github.com/anthng">
-                    <i class="fab fa-github title-logo"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/anthng/">
-                    <i class="fab fa-linkedin title-logo"></i>
-                </a>
-                <a href="/blogs">
-                    <i class="fas fa-blog title-logo"></i>
-                </a>
-            </div>
-            <br>
-            <br>
-            <br>
-            <div id="bottom_btn" class="social-icons" style="text-align: center;">
-                <a href="#full">
-                    <i class="fa fa-angle-double-down title-logo" style="font-size: 64px;"></i>
-                </a>
-            </div>
+<div class="container">
+  {% for post in paginator.posts %}
+  <div class="card">
+    <div class="row">
+      <div class="col-md-12 col-s-12">
+        {% if post contains 'img'%}
+        <img class="card-img-top" style="margin-bottom: 10px;" src="{{post.img}}" alt="Image" /></a>
+        {% endif %}
+      </div>
+      <div class="col-md-12 col-s-12">
+        <div class="card-body">
+          <h1 class="card-title"><a href={{post.url}} class="title">{{post.title}}</a></h1>
+          <h6><small>{{ post.date | date_to_string }}</small></h6>
+          <hr>
+          <p class="card-text">{{ post.excerpt }}</p>
+          {% for tag in post.tags %}
+          <span class="badge badge-primary">{{tag}}</span>
+          {% endfor %}
         </div>
-        <div class="middle-text" id = "full">
-            <p class="text-content">Hi there! I'm An and am currently a senior student of Bachelor of Engineering in Information Technology at the <a target= "_blank" href="https://ut.edu.vn/en">Ho Chi Minh City University of Transport</a>. This a great place, which taught me a lot of valuable lessons. Lecturers are always wholeheartedly for the students. Thanks to their deep concern, I learned from them so much. And furthermore, I've got to know many good friends, always supporting each other on the student journey. It's a tremendous honor for me to become a student at the <a target= "_blank" href="https://ut.edu.vn/en">HCMC University of Transport</a>.</p>
-            <p class="text-content">In my student life, I'm passionate about research. My research interests lie in the broad field of Machine Learning and Data Mining. My other hobbies are reading research papers, sports, and photography.
-            </p>
+        <div class="card-body" style="text-align: right;">
+          <a href={{post.url}} class="card-link">Read More</i></a>
         </div>
+      </div>
     </div>
-    
+  </div>
+  {% endfor %}
+  
+  {% include paginator.html %}
 </div>
-
-<script>
-
-    var txt_content = document.getElementsByClassName("text-content");
-
-    try {
-        var hasContain = txt_content[0].classList.contains('text-content');
-        if (hasContain === true) {
-            document.getElementById("bottom_btn").style.visibility = "visible";
-        }
-        else {
-            document.getElementById("bottom_btn").style.visibility = "hidden";
-        }
-    } catch (error) {
-        document.getElementById("bottom_btn").style.visibility = "hidden";
-    }
-</script>
