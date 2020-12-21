@@ -7,7 +7,6 @@ $(function () {
         "><span class='caret'>...</span> Natural Language Processing<br/> ^100" +
         "><span class='caret'>...</span> Spatial Temporal Mining<br/> ^100" +
         "><span class='caret'>...</span> Computer Vision<br/> ^100" +
-        "><span class='caret'>...</span> Data Mining<br/> ^100" +
         "><span class='caret'>$</span> <mark>TECHINICAL_SKILLS</mark><br/> ^100" +
         "><span class='caret'>...</span> Programming: Python, C#, Java, C++<br/> ^100" +
         "><span class='caret'>...</span> Frameworks: Keras, Tensorflow, Pytorch, Flask<br/> ^100" +
