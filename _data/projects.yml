@@ -1,23 +1,4 @@
 - 
-  title: "Health Care Dashboard"
-  time: "Aug 2020 - Sep 2020"
-  description: 
-    - 
-      text: "The project is to keep track of a number of diseases in Vietnam. Based on historical data, the goal of the project is to build the system to predict outbreaks of the disease that are possible to occur. Thereby, supporting medical staff to take action to prevent the hazards before an outbreak develops."
-    -
-      text: "I joined up with another member to develope this project. We developed the project via the Flask framework and the libraries in data visualization such as Folium, dash, plotly, etc. My main responsibilities were to:"
-      tasks: 
-        - "Visualize disease information based on geospatial features (latitude, longitude)."
-        - "Visualize the characteristics of the weather following the timeline e.g: humid, raining day, sunny hour, etc."
-        - "Visualize the correlation network graph in the data."
-  photos:
-    - "assets/images/projects/health/Demo.png"
-  tags:
-    - "visualization"
-    - "spatial-temporal"
-  github: "https://github.com/anthng/Healthcare-Dashboard"
-
-- 
   title: "Vehicle Counting and Speed Estimation"
   time: "Sep 2019 – Oct 2019"
   description: 
