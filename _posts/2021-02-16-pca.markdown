@@ -14,7 +14,7 @@ permalink: blogs/pca-python
 
 In this post, I'll gently introduce a well-known dimensionality reduction technique called Principal Component Analysis (PCA). The application of PCA is very diverse in many areas such as NLP, CV, medicine discovery, biology, ...
 
-The section of the post will be organized following: The first is to go through the foundation of PCA quickly. Next, I'll implement PCA from scratch with Numpy. Finally, the visualization of data for PCA from scratch and from sklearn-module.
+The section of the post will be organized following: The first is to go through the foundation of PCA quickly. Next, I'll implement PCA from scratch with Numpy. Finally, the visualization of data for PCA from scratch and from sklearn-module. You can download this notebook [here](https://nbviewer.jupyter.org/github/anthng/anthng.github.io/blob/main/_notebooks/pca/pca.ipynb). Now, let's get started.
 
 <h2>Contents</h2>
 
