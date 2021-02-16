@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  Implementation of PCA in Python
-excerpt: ""
+excerpt: "PCA - A well-known dimensionality reduction"
 categories:
     - Data
 tags:
@@ -487,13 +487,13 @@ fig.show()
 </a>
 <p style="text-align: center;" ><b>Figure 7.</b> The result after flipping sign</p>
 
-After the flipping sign, The result of **PCA** is the same as **sklearn**. And that's all, hope this was interesting.
+After the flipping sign, The result of **PCA** is the same as **sklearn**. This notebook can be downloaded [here [3]](https://nbviewer.jupyter.org/github/anthng/anthng.github.io/blob/main/_notebooks/pca/pca.ipynb)
 
-This notebook can be downloaded [here [3]]()
+And that's all, hope this was interesting.
 
 # References
 [[1] Principal Component Analysis](https://en.wikipedia.org/wiki/Principal_component_analysis)
 
 [[2] Why do need to normalize data before PCA](https://stats.stackexchange.com/questions/69157/why-do-we-need-to-normalize-data-before-principal-component-analysis-pca#:~:text=2%20Answers&text=Normalization%20is%20important%20in%20PCA,have%20not%20normalized%20the%20data.)
 
-[[3] Notebook]()
+[[3] Notebook](https://nbviewer.jupyter.org/github/anthng/anthng.github.io/blob/main/_notebooks/pca/pca.ipynb)
