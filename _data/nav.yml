@@ -1,8 +1,8 @@
+- name: "Blog"
+  link: "/"
+
 - name: "Projects"
   link: "/projects"
-
-- name: "Timeline"
-  link: "/timeline"
 
 - name: "About"
   link: "/about"
