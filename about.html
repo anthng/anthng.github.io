@@ -1,79 +1,41 @@
 ---
 layout: default
 title: About
---- 
+---
+<style>
+    .about {
+            max-width: 100%;
+            width: 60%;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 25px;
+            padding: 30px 30px 10px 30px;
 
-<div class="container-fluid">
-    <div class="wrapper fixed-wrapper">
-        <section id="terminal">
-            <div id="terminal-container">
-                <div class="terminal">
-                    <div class="window-title">
-                        <div class="win-buttons">
-                            <a id="close" class="button" href="javascript:close_window();"></a>
-                            <a id="min" class="button" href="javascript:max_min_button()"></a>
-                            <a id="max" class="button" href="#full"></a>
-                        </div>
-                        <span class="title">anthng@anthng: ~</span>
-                    </div>
-                    <div class="message">
-                        <span class='prompt'><span class='user'>anthng</span><span class="at">@anthng:</span><span
-                                class="path">/home/anthng/</span>&#126;<span class="caret">&#36;</span></span>
-                        <span id="typed"></span>
-                        <form>><span class="caret">$</span>&nbsp;<input type="text" name="response" /></form>
-                    </div>
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 3%;
+            box-shadow: 0.5rem 0.5rem 2rem 0 rgba(0, 0, 0, 0.2);
+        }
+</style>
 
-                </div>
-            </div>
-        </section>
-    </div>
-    <div class="wrapper scroll-wrapper">
-        <div class="top-text">
-            <p class="text-title desktop-view">An-Thien</p>
-            <p class="text-title desktop-view">Nguyen</p>
-            <p class="text-title mobile-view">An Nguyen</p>
-            <div class="social-icons">
-                <a href="https://github.com/anthng">
-                    <i class="fab fa-github title-logo"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/anthng/">
-                    <i class="fab fa-linkedin title-logo"></i>
-                </a>
-                <a href="/blogs">
-                    <i class="fas fa-blog title-logo"></i>
-                </a>
-            </div>
-            <br>
-            <br>
-            <br>
-            <div id="bottom_btn" class="social-icons" style="text-align: center;">
-                <a href="#full">
-                    <i class="fa fa-angle-double-down title-logo" style="font-size: 64px;"></i>
-                </a>
-            </div>
-        </div>
-        <div class="middle-text" id = "full">
-            <p class="text-content">Hi there! I'm An and am currently a senior student of Bachelor of Engineering in Information Technology at the <a target= "_blank" href="https://ut.edu.vn/en">Ho Chi Minh City University of Transport</a>. This a great place, which taught me a lot of valuable lessons. Lecturers are always wholeheartedly for the students. Thanks to their deep concern, I learned from them so much. And furthermore, I've got to know many good friends, always supporting each other on the student journey. It's a tremendous honor for me to become a student at the <a target= "_blank" href="https://ut.edu.vn/en">HCMC University of Transport</a>.</p>
-            <p class="text-content">In my student life, I'm passionate about research. My research interests lie in the broad field of Machine Learning and Data Mining. My other hobbies are reading research papers, sports, and photography.
-            </p>
+<div class="container">
+    <div class="about">
+        <p class="text-content">Hi there! I'm An and currently a senior student of Bachelor of
+            Engineering in Information Technology at the <a target="_blank" href="https://ut.edu.vn/en">Ho Chi Minh City University of Transport</a>
+        <p class="text-content">My research area is in Data Mining. My interests include natural language, spatial-temporal, image processing.
+            I'm also interested in machine learning and deep learning.
+        </p>
+        <br>
+        <hr>
+        <div class="social-icons justify-content-center">
+            <a href="https://github.com/anthng">
+                <i class="fab fa-github title-logo"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/anthng/">
+                <i class="fab fa-linkedin title-logo"></i>
+            </a>
+            <a href="/blogs">
+                <i class="fas fa-blog title-logo"></i>
+            </a>
         </div>
     </div>
-    
 </div>
-
-<script>
-
-    var txt_content = document.getElementsByClassName("text-content");
-
-    try {
-        var hasContain = txt_content[0].classList.contains('text-content');
-        if (hasContain === true) {
-            document.getElementById("bottom_btn").style.visibility = "visible";
-        }
-        else {
-            document.getElementById("bottom_btn").style.visibility = "hidden";
-        }
-    } catch (error) {
-        document.getElementById("bottom_btn").style.visibility = "hidden";
-    }
-</script>
