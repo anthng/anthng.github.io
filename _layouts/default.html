@@ -26,7 +26,7 @@
             <script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js'></script>
             <link href="https://fonts.googleapis.com/css?family=Inconsolata:200,400,700" rel="stylesheet" type="text/css">
             <link rel="stylesheet" href="{{ site.url }}/assets/css/home.css">
-            <script type="text/javascript" src="{{ site.url }}/assets/js/terminal.js"></script>
+            <!-- <script type="text/javascript" src="{{ site.url }}/assets/js/terminal.js"></script>
 
             <script>
                 function close_window() {
@@ -42,16 +42,13 @@
                         x.style.display = "none";
                     }
                 }
-            </script>
+            </script> -->
         {% endif %}
         {% if  page.title  == 'Page Not Found' %}
         <link rel="stylesheet" href="{{ site.url }}/assets/css/home.css">
         {% endif %}
         {% if  page.title  == 'Projects'%}
         <link rel="stylesheet" href="{{ site.url }}/assets/css/project.css">
-        {% endif %}
-        {% if  page.title  == 'Timeline'%}
-        <link rel="stylesheet" href="{{ site.url }}/assets/css/timeline.css">
         {% endif %}
         {% if  page.title  == 'Blogs'%}
         <link rel="stylesheet" href="{{ site.url }}/assets/css/blogs.css">
