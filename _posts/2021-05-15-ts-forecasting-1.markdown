@@ -10,7 +10,7 @@ tags:
     - Python
     - Time-Series
 comments: true
-permalink: blogs/ts-model-1
+permalink: blogs/ts-model1
 
 ---
 
