@@ -21,7 +21,7 @@ ARIMA is a widely used time series forecasting that a given time series based on
 The section of the post will be organized following: In the first section, we introduce an overview of ARIMA. Subsequently, we visualize time series, and handle missing value. Next, we split data and determine the stationarity of data. We then show how to find parameters automatically. Eventually, we predict future values.
 
 - The dataset is available [here](https://www.kaggle.com/mczielinski/bitcoin-historical-data) [Online accessed Jan 04 2021] [1]
-- You can download this notebook [here]) [2]. Now, let's get started.
+- You can download this notebook [here](https://nbviewer.jupyter.org/github/anthng/anthng.github.io/blob/main/_notebooks/btc-forecast/btc-forecast.ipynb) [2]. Now, let's get started.
 
 <h2>Contents</h2>
 
@@ -611,6 +611,6 @@ Hope that this post was helpful for you.
 # References
 [[1] Bitcoin Historical Data  [Online accessed Jan 04 2021]](https://www.kaggle.com/mczielinski/bitcoin-historical-data)
 
-[[2] Notebook]()
+[[2] Notebook](https://nbviewer.jupyter.org/github/anthng/anthng.github.io/blob/main/_notebooks/btc-forecast/btc-forecast.ipynb)
 
 [[3] Hyndman, R.J., & Athanasopoulos, G. (2021) Forecasting: principles and practice, 3rd edition, OTexts: Melbourne, Australia. OTexts.com/fpp3. Accessed on Jan 04 2021.](https://otexts.com/fpp3/)
