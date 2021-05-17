@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  ARIMA Model - Time Series Analysis Part 1
-excerpt: "Time series is a chronological order of observations on a particular variable. Forecasting the time series (as demand or traffic, or sales) brings considerable commercial significance since then driving bussiness plan."
+excerpt: "Time series is a chronological order of observations on a particular variable. Forecasting the time series (as demand or traffic, or sales) brings considerable commercial significance since then driving business plan."
 categories:
     - Data
 tags:
@@ -14,7 +14,7 @@ permalink: blogs/ts-model1
 
 ---
 
-Time series is a sequence of observations collected at ordered time intervals. Time series analysis is used for many applications such as: traffic prediction, sales forecasting, stock market analysis, ... This is a series of post which we'll analyze time series data, and apply several time series models to predict bitcoin price. In the first post of this series, we walk you through the process of applying ARIMA model in Python.
+Time series is a sequence of observations collected at ordered time intervals. Time series analysis is used for many applications such as traffic prediction, sales forecasting, stock market analysis, etc bringing considerable commercial significance since then driving business plan. This i s a series of post which we'll analyze time series data, and apply several time series models to predict bitcoin price. In the first post of this series, we walk you through the process of applying ARIMA model in Python.
 
 ARIMA is a widely used time series forecasting that a given time series based on its own past value is used to forecast the future.
 
@@ -29,11 +29,11 @@ The section of the post will be organized following: In the first section, we in
 {:toc}
 
 # ARIMA Model
-It predicts future data in a series as a linear combination of its own past values, past errors, and current and past values of other time series.
-ARIMA stands for 'Auto Regressive Integrated Moving Average' used for statistical analysis of the time series data. The basic idea of  the model is information in the past values of the time series can be used to predict the future values. An ARIMA model are typically expressed as a linear combination of three terms p, d, and q defined as $$ARIMA(p,d,q)$$ where:
+
+ARIMA stands for 'Auto Regressive Integrated Moving Average' used for statistical analysis of the time series data. The basic idea of the model is information in the past values of the time series can be used to predict the future values as a linear combination of its own past values, past errors, and current and past values of other time series.  An ARIMA model is typically expressed as three terms p, d, and q defined as $$ARIMA(p,d,q)$$ where:
 - $$p$$ (AR - Auto regressive) means the number of prior or lagged Y values that have to be added/subtracted to be used as predictor. In other words, it predicts future values based on past values.
 - $$d$$ (I - Integrated) is the number of nonseasonal differences to produce a stationary data. If $$d=0$$, our data is stationary (not tend to go up or down in the long term)
-- $$q$$ (MA - Moving Average) is the size of moving average window. In other words, it is the number of prior or lag values for the residual error (residual error is the difference between  observed value and the corresponding fitted value) that are added/subtracted to Y.
+- $$q$$ (MA - Moving Average) is the size of moving average window. In other words, it is the number of prior or lagged values for the residual error (residual error is the difference between  observed value and the corresponding fitted value) that are added/subtracted to Y.
 
 The formual itself:
 
@@ -604,7 +604,7 @@ The forecast line becomes better when we apply the walk-forward validation techn
 
 # Conclusion
 
-In this tutorial, we describe how to implement ARIMA model in Python. In the following posts, we try to cover a lot of other models and improve the results.
+In this tutorial, we describe how to implement ARIMA model for univariate time series forecasting in Python. In the following posts, we try to cover a lot of other models and improve the results.
 
 Hope that this post was helpful for you.
 
