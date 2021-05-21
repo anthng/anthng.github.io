@@ -483,7 +483,7 @@ fig.show()
 ```
 
 <a href="../images/posts/pca/afterflipping2.png" target="_blank">
-<img src="../images/posts/pca/afterflipping2.png" alt="after flipping 2D" class="center"/>
+<img src="../images/posts/pca/afterflipping2.png" alt="after flipping 2D" class="center"  style="max-width:90%;"/>
 </a>
 <p style="text-align: center;" ><b>Figure 7.</b> The result after flipping sign</p>
 
