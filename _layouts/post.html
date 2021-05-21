@@ -72,10 +72,23 @@ layout: default
         width: auto !important;
         white-space: nowrap !important;
     }
+
+    @media only screen and (max-width: 900px) {
+    .container {
+      width: 100% !important;
+    }
+    .center {
+      width: 70% !important;
+    }
+  }
+  .container {
+      width: 55%;
+    }
+  
   </style>
 </head>
 
-<div class="container" style="width: 55%; margin-top: 2.5rem">
+<div class="container" style="margin-top: 2.5rem">
   <h1>{{ page.title }}</h1>
   <p class="meta">{{ page.date | date_to_string }}</p></small>
   {% for tag in page.tags %}
