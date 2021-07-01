@@ -1,11 +1,10 @@
 ---
 layout: post
-title:  '[Paper Reading] Bayesian Personalized Ranking from Implicit Feedback'
+title:  '[Reading] Bayesian Personalized Ranking from Implicit Feedback'
 excerpt: "A literature review: 'BPR: Bayesian Personalized Ranking from Implicit Feedback'"
 categories:
     - reading
 tags:
-    - Review
     - Recommender-System
 comments: true
 permalink: blogs/bpr
