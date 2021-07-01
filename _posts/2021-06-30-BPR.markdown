@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  Summary of Bayesian Personalized Ranking from Implicit Feedback
+title:  '[Paper Reading] Bayesian Personalized Ranking from Implicit Feedback'
 excerpt: "A literature review: 'BPR: Bayesian Personalized Ranking from Implicit Feedback'"
 categories:
-    - Review
+    - reading
 tags:
     - Review
     - Recommender-System
 comments: true
-permalink: blogs/summary-bpr
+permalink: blogs/bpr
 
 ---
 
@@ -25,11 +25,11 @@ The personalized ranking system is a ranked list of recommended items for a cust
 
 # 1. Introduction
 
-Recommender systems are a widely applicable problem in industry such as: music recommendation, movie/video recommendation, point-of-interest (POI) recommendationm and so on. The goal of recommender systems is to provide relevant items based on historical data of users who interacted with them.
+Recommender systems are a widely applicable problem in industry such as music recommendation, movie/video recommendation, point-of-interest (POI) recommendation and so on. The goal of recommender systems is to provide relevant items based on historical data of users who interacted with them.
 
-In general, most recent works in recommender system foccus on two scenarios:
+In general, most recent works in recommender system focus on two scenarios:
 
-- **Explicit feedback**: user provides explicit feedback, like: rating.
+- **Explicit feedback**: user provides explicit feedback, like rating.
 - **Implicit feedback**: user clicks/purchases/views times (interacts with).
 
 For explicit feedback, not all systems can get explicit user data while implicit feedback is easy to collect because we can track automatically user interactions. In the real world, implicit feedback is already available in almost any information system – e.g. web servers record any page access in log files.
@@ -45,6 +45,8 @@ In the implicit scenario, only positive classes are observed. Researchers used b
 However, as mentioned above, the negative cases (non-observed) are a mixture of negative feedback (not interested in) and missing values (potential buyers). Thus, this approach will not take into account ranking recommendation in the future.
 
 In this paper, Rendle et al. propose a (BPR) different way to represent the implicit feedback by using item pairs as training data and optimize the rank list using Bayesian probability.
+
+If you are not more interested in math, you can move on [Implementation](#6-implmentation).
 
 # 2. Problem Formulation
 
@@ -88,6 +90,7 @@ In the Fig 2, positive sign shows that a user $$u$$ prefers item $$i$$ over item
 
 # 3. Bayesian Personalized Ranking (BPR)
 
+## 3.1. BPR Optimization
 Let $$\Theta$$ be the parameter of model. The goal is to maximize posterior probability .
 
 $$\begin{align}p(\Theta | i >_u j) \propto p(i >_u j |\Theta) p(\Theta)
@@ -102,7 +105,8 @@ $$\prod_{u \in U} p(>_u | \Theta)= p(>_{u_1} | \Theta) p(>_{u_2} | \Theta)…p(>
 
 Next, the ordering of each pair of items $$(i, j)$$ for a specific user is independent of the ordering of every other pair. Because there are only two cases $$i>_u j$$ and $$j>_u i$$ (It follows the Bernoulli distribution), we can be expressed as follows:
 
-$$\begin{align*}\prod_{u \in U} p(>_u | \Theta) = \prod_{(u,i,j) \in U \times I \times I} p(i >_u j|\Theta) = \prod_{(u,i,j) \in D_s} p(i >_u j)^{\delta((u,i,j) \in D_S)} (1-p(i >_u j))^{\delta((u,i,j) \notin D_S)} \end{align*}$$
+$$\begin{align*}\prod_{u \in U} p(>_u | \Theta) &= \prod_{(u,i,j) \in U \times I \times I} p(i >_u j|\Theta)  \\
+&= \prod_{(u,i,j) \in D_s} p(i >_u j)^{\delta((u,i,j) \in D_S)} (1-p(i >_u j))^{\delta((u,i,j) \notin D_S)} \end{align*}$$
 
 where $$\delta$$ is the indicator function:
 
@@ -156,7 +160,7 @@ $$\begin{align*}
 &= \arg\max_{\Theta} \sum_{(u,i,j) \in D_S } \ln{\sigma (\hat{x}_{uij})} - \lambda_{\Theta} \left\Vert \Theta \right\Vert ^{2}
 \end{align*}$$
 
-# 4. BPR Learning Algorithm
+## 3.2. BPR Learning Algorithm
 
 In this paper, a stochastic gradient-descent algorithm based on bootstrap sampling of training triples is utilized to optimize model.
 
@@ -171,13 +175,13 @@ procedure LearnBPR(DS, Θ){
     return Θ
 }
 ```
-Stochastic gradient descent mathematic formula:
+Stochastic gradient descent mathematical formula:
 
 $$\begin{align*}
 \Theta \leftarrow \Theta + \alpha \left( \frac{ e^{-\hat{x}_{uij}} }{ 1+e^{-\hat{x}_{uij}} } \cdot \frac{\partial}{\partial \Theta} \hat{x}_{uij} + \lambda_{\Theta} \cdot \Theta \right)
 \end{align*}$$
 
-# 5. Learning models with BPR
+## 3.3. Learning models with BPR
 
 Matrix factorization in general tries to model the hidden preferences of a user on an item, and it predicts a real number $$\hat{x}_{ul}$$ per user-item pair $$(u,l)$$.
 
@@ -187,6 +191,233 @@ $$\hat{x}_{uij}= \hat{x}_{ui} - \hat{x}_{uj}$$
 
 Now we can apply any standard collaborative filtering model that predicts $$\hat{x}_{ul}$$.
 
+# 6. Implmentation
+
+## 6.1. MovieLens Dataset
+
+```python
+# Reference: https://keras.io/examples/structured_data/collaborative_filtering_movielens/
+
+# Download the actual data from http://files.grouplens.org/datasets/movielens/ml-latest-small.zip"
+# Use the ratings.csv file
+
+movielens_data_file_url = (
+    "http://files.grouplens.org/datasets/movielens/ml-latest-small.zip"
+)
+movielens_zipped_file = keras.utils.get_file(
+    "ml-latest-small.zip", movielens_data_file_url, extract=False
+)
+keras_datasets_path = Path(movielens_zipped_file).parents[0]
+movielens_dir = keras_datasets_path / "ml-latest-small"
+
+# Only extract the data the first time the script is run.
+if not movielens_dir.exists():
+    with ZipFile(movielens_zipped_file, "r") as zip:
+        # Extract files
+        print("Extracting all the files now...")
+        zip.extractall(path=keras_datasets_path)
+        print("Done!")
+
+ratings_file = movielens_dir / "ratings.csv"
+df = pd.read_csv(ratings_file).rename(columns={'userId': 'user_id','movieId':'item_id'})
+df.head()
+```
+
+<table class="dataframe" style="margin-left: auto; margin-right: auto;">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>user_id</th>
+      <th>item_id</th>
+      <th>rating</th>
+      <th>timestamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>4.0</td>
+      <td>964982703</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>3</td>
+      <td>4.0</td>
+      <td>964981247</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>6</td>
+      <td>4.0</td>
+      <td>964982224</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>47</td>
+      <td>5.0</td>
+      <td>964983815</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>50</td>
+      <td>5.0</td>
+      <td>964982931</td>
+    </tr>
+  </tbody>
+</table>
+
+## 6.2. Preparation
+
+```python
+def create_matrix(dataframe, threshold = None):
+    """
+    create the sparse user-item matrix.
+
+    Params:
+    dataframe : implicit data (format csv)
+
+    threshold : to determine whether the user-item pair is a positive feedback
+    """
+
+    _df = dataframe.copy()
+
+    if threshold is not None:
+        _df['rating'] = _df['rating'].apply(lambda rat: 1 if rat >= threshold else 0)
+    
+    user_id = _df['user_id'].astype('category').cat.codes
+    item_id = _df['item_id'].astype('category').cat.codes
+
+    mat = csr_matrix((_df['rating'], (user_id, item_id)))
+    mat.eliminate_zeros()
+
+    return mat
+
+def create_train_test(matrix, test_size = 0.2):
+    train = matrix.copy().todok()
+    test = dok_matrix(train.shape)
+    n = matrix.shape[0]
+
+    for u in range(n):
+        split_index = matrix[u].indices
+        n_splits = np.ceil(test_size * split_index.shape[0])
+        test_index = np.random.choice(split_index, size=int(n_splits), replace=False)
+
+        train[u, test_index] = 0
+        test[u, test_index] = matrix[u, test_index]
+
+    train = train.tocsr()
+    test = test.tocsr()
+
+    return train, test
+```
+
+## 6.3. BPR model
+
+```python
+class BPR:
+    def __init__(self, learning_rate=0.01, n_factors=15, lambd=0.01, n_iters=300):
+        self.learning_rate = learning_rate
+        self.n_factors = n_factors
+        self.lambd = lambd # regularization
+        self.n_iters = n_iters
+
+    def fit(self, matrix):
+        n_users, n_items = matrix.shape
+
+        self.user_factors = np.ones(shape=(n_users, self.n_factors))
+        self.item_factors = np.ones(shape=(n_items, self.n_factors))
+        
+        pos = np.split(matrix.indices, matrix.indptr)[1:-1]
+        neg = [np.setdiff1d(np.arange(0, n_items,1), e) for e in pos]
+
+        for _ in range(self.n_iters):
+            u = np.random.randint(0, n_users)
+            i = pos[u][np.random.randint(0, len(pos[u]))]
+            j = neg[u][np.random.randint(0, len(neg[u]))]
+
+            xui = (self.user_factors[u] * self.item_factors[i]).sum()
+            xuj = (self.user_factors[u] * self.item_factors[j]).sum()
+            
+            xuij = xui - xuj
+            exp_xuij = self.sigmoid(-xuij)
+
+            # gradient u
+            self.user_factors[u] += self.learning_rate * ( exp_xuij / (1+exp_xuij) 
+                                * (self.item_factors[i] -  self.item_factors[j])
+                                + self.lambd * self.user_factors[u])
+            
+            # gradient i
+            self.item_factors[i] += self.learning_rate * ( exp_xuij / (1+exp_xuij)
+                                * self.user_factors[u] + self.lambd * self.item_factors[i])
+
+            # gradient j
+            self.item_factors[j] += self.learning_rate * ( exp_xuij / (1+exp_xuij)
+                                * (- self.user_factors[u]) + self.lambd * self.item_factors[j])
+
+
+    def predict(self, user, item):
+        self.prediction_ = self.user_factors.dot(self.item_factors.T)
+        return self.prediction_
+
+    def predict_user(self, user):
+        user_pred = self.user_factors[user].dot(self.item_factors.T)
+        return user_pred
+    
+    def sigmoid(self, x):
+        return 1/(1 + np.exp(-x))
+  
+# metric
+def auc_score(model, matrix):
+    auc = 0.0
+    n_users, n_items = matrix.shape
+
+    for user, row in enumerate(matrix):
+        y_pred = model.predict_user(user)
+        y_true = np.zeros(n_items)
+        y_true[row.indices] = 1
+        
+        auc += roc_auc_score(y_true, y_pred)
+        
+    auc /= n_users
+
+    return auc
+```
+
+## 6.4. Evaluation
+
+```python
+matrix = create_matrix(df)
+train, test = create_train_test(matrix)
+```
+
+```python
+bpr = BPR(n_factors=25, n_iters=50000)
+bpr.fit(train)
+
+print("Train: ",auc_score(bpr,train))
+print("Test: ",auc_score(bpr,test))
+````
+
+```
+Train:  0.9051005476547669
+Test:  0.8781457935771464
+```
+
+Source code for this post based on [here](http://ethen8181.github.io/machine-learning/recsys/4_bpr.html). Moreover, you also can refer [An implementation of Bayesian Personalised Ranking in Theano](https://github.com/bbc/theano-bpr).
+
+
 # References
 
-[1] [BPR: Bayesian Personalized Ranking from Implicit Feedback](https://arxiv.org/ftp/arxiv/papers/1205/1205.2618.pdf)
+[1] [Rendle, Steffen, et al. "BPR: Bayesian personalized ranking from implicit feedback." arXiv preprint arXiv:1205.2618 (2012)](https://arxiv.org/ftp/arxiv/papers/1205/1205.2618.pdf)
+
+[2] [MovieLens dataset](https://keras.io/examples/structured_data/collaborative_filtering_movielens/)
+
+[3] [An implementation of Bayesian Personalised Ranking in Theano](https://github.com/bbc/theano-bpr)
+
+[4] [Bayesian Personalized Ranking](http://ethen8181.github.io/machine-learning/recsys/4_bpr.html)
