@@ -12,7 +12,8 @@ permalink: blogs/bpr
 
 ---
 
-A summary of [BPR: Bayesian Personalized Ranking from Implicit Feedback](https://arxiv.org/ftp/arxiv/papers/1205/1205.2618.pdf) [1].
+
+A new category, "Reading" is introduced, in which I would read and rewrite what I understand in a research paper.  And today, I'll summarize [BPR: Bayesian Personalized Ranking from Implicit Feedback](https://arxiv.org/ftp/arxiv/papers/1205/1205.2618.pdf) [1].
 
 # Personalized Ranking System
 
@@ -46,7 +47,7 @@ However, as mentioned above, the negative cases (non-observed) are a mixture of 
 
 In this paper, Rendle et al. propose a (BPR) different way to represent the implicit feedback by using item pairs as training data and optimize the rank list using Bayesian probability.
 
-If you are not more interested in math, you can move on [Implementation](#6-implmentation).
+If you are not more interested in math, you can move on [Implementation](#4-implmentation).
 
 # 2. Problem Formulation
 
