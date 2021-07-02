@@ -6,6 +6,7 @@ categories:
     - reading
 tags:
     - Recommender-System
+    - Reading
 comments: true
 permalink: blogs/bpr
 
@@ -190,9 +191,9 @@ $$\hat{x}_{uij}= \hat{x}_{ui} - \hat{x}_{uj}$$
 
 Now we can apply any standard collaborative filtering model that predicts $$\hat{x}_{ul}$$.
 
-# 6. Implmentation
+# 4. Implmentation
 
-## 6.1. MovieLens Dataset
+## 4.1. MovieLens Dataset
 
 ```python
 # Reference: https://keras.io/examples/structured_data/collaborative_filtering_movielens/
@@ -271,7 +272,7 @@ df.head()
   </tbody>
 </table>
 
-## 6.2. Preparation
+## 4.2. Preparation
 
 ```python
 def create_matrix(dataframe, threshold = None):
@@ -316,7 +317,7 @@ def create_train_test(matrix, test_size = 0.2):
     return train, test
 ```
 
-## 6.3. BPR model
+## 4.3. BPR model
 
 ```python
 class BPR:
@@ -388,7 +389,7 @@ def auc_score(model, matrix):
     return auc
 ```
 
-## 6.4. Evaluation
+## 4.4. Evaluation
 
 ```python
 matrix = create_matrix(df)
