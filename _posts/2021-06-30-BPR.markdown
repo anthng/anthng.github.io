@@ -129,16 +129,19 @@ $$\hat{x}_{uij}(\Theta)$$ captures the special relationship between user $$u$$, 
 
 We need prior probability to complete the Bayesian modeling approach of the personalized ranking task. In this work, Rendle et al. introduce $$p(\Theta)$$ which is a normal distribution with zero mean $$(\mu = 0)$$ and variance-covariance matrix $$\Sigma (\Theta)$$, and set $$\Sigma (\Theta) = \lambda_{\Theta} I$$ to reduce the number of unknown hyper-parameters.
 
-As you know, $$\mid \Sigma_{\Theta}\mid = \mid\lambda I\mid = \mid\lambda^d  I\mid  = \lambda^d$$ with $$I$$ is identity matrix, and determinant of identity matrix is 1.
+As you know, $$\mid \Sigma_{\Theta}\mid = \mid \lambda_{\Theta} I\mid =  \lambda_{\Theta}^d  \mid I\mid  = \lambda_{\Theta}^d$$ with $$I$$ is identity matrix ($$d \times d$$ dimension), and determinant of identity matrix is 1.
 
-$$p(\Theta) \sim N(\mathbf{0}, \ \lambda_{\Theta}I)$$
+$$\begin{align*}
+p(\Theta) &\sim N(\mathbf{0}, \ \Sigma_{\Theta}) \\
+&\sim N(\mathbf{0}, \ \lambda_{\Theta}^{-1})
+\end{align*}$$
 
 $$
 \begin{align*}
 N(\Theta | \mu, \Sigma)
 &= \frac{1}{(2\pi)^{d/2}\sqrt{|\Sigma_{\Theta}|}} exp(-\frac{1}{2}(\Theta-\mu)^{T} \Sigma^{-1}_{\Theta}(\Theta-\mu) ) \\
-&= \frac{1}{(2\pi)^{d/2}\sqrt{\lambda^{d}}} exp(-\frac{1}{2}\Theta^{T} (\frac{1}{\lambda_{\Theta}}I) \Theta) \\
-&= \frac{1}{(2\pi)^{d/2}\sqrt{\lambda^{d}}} exp(-\frac{1}{2\lambda_{\Theta}}\Theta^{T} \Theta)
+&= \frac{1}{(2\pi)^{d/2}\sqrt{\lambda_{\Theta}^{d}}} exp(-\frac{1}{2}\Theta^{T} (\frac{1}{\lambda_{\Theta}}I) \Theta) \\
+&= \frac{1}{(2\pi)^{d/2}\sqrt{\lambda_{\Theta}^{d}}} exp(-\frac{1}{2\lambda_{\Theta}}\Theta^{T} \Theta)
 \end{align*}
 $$
 
@@ -146,7 +149,7 @@ In the formula above, the only part that depends on $$\Theta$$ that is $$ exp(-\
 
 $$
 \begin{align*}
-\ln{p(\Theta)} &= \ln{[\frac{1}{(2\pi)^{d/2}\sqrt{\lambda^{d}}} exp(-\frac{1}{2\lambda_{\Theta}}\Theta^{T} \Theta)]} \\
+\ln{p(\Theta)} &= \ln{[\frac{1}{(2\pi)^{d/2}\sqrt{\lambda_{\Theta}^{d}}} exp(-\frac{1}{2\lambda_{\Theta}}\Theta^{T} \Theta)]} \\
 &= c -\frac{1}{2\lambda_{\Theta}}\Theta^{T} \Theta \\
 &= - \frac{1}{2\lambda_{\Theta}} \left\Vert \Theta \right\Vert ^{2} +c \\
 &\simeq -\lambda_{\Theta} \left\Vert \Theta \right\Vert ^{2} +c
@@ -157,8 +160,16 @@ $$
 To sum it all up, the optimization problem will be:
 
 $$\begin{align*}
-\text{BPR-OPT} &:= \arg\max_{\Theta} \ p(\Theta|>_u) \\
+\text{BPR-OPT} &:= \arg\max_{\Theta} \  \ln{p(\Theta|>_u)} \\
+&= \arg\max_{\Theta} \  \ln{p(>_u \mid \Theta) p(\Theta)} \\
 &= \arg\max_{\Theta} \sum_{(u,i,j) \in D_S } \ln{\sigma (\hat{x}_{uij})} - \lambda_{\Theta} \left\Vert \Theta \right\Vert ^{2}
+\end{align*}$$
+
+The maximum a posterior is the same as minimizing minus the posterior. So the target problem now becomes minimizing the negative posterior:
+
+$$\begin{align*}
+J(\Theta) &= \arg\min_{\Theta} \sum_{(u,i,j) \in D_S } -\ln{\sigma (\hat{x}_{uij})} + \lambda_{\Theta} \left\Vert \Theta \right\Vert ^{2} \\
+&= \arg\min_{x_u, y_i, y_j} \sum_{(u,i,j) \in D_S } -\ln{\frac{1}{1 + e^{-(\hat{x_{uij}}) }}} + \frac{\lambda_{\Theta} \left\Vert x_u \right\Vert ^{2}}{2} + \frac{\lambda_{\Theta} \left\Vert y_i \right\Vert ^{2}}{2} + \frac{\lambda_{\Theta} \left\Vert y_j \right\Vert ^{2}}{2}
 \end{align*}$$
 
 ## 3.2. BPR Learning Algorithm
