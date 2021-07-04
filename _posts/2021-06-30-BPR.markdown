@@ -152,7 +152,7 @@ $$
 \ln{p(\Theta)} &= \ln{[\frac{1}{(2\pi)^{d/2}\sqrt{\lambda_{\Theta}^{d}}} exp(-\frac{1}{2\lambda_{\Theta}}\Theta^{T} \Theta)]} \\
 &= c -\frac{1}{2\lambda_{\Theta}}\Theta^{T} \Theta \\
 &= - \frac{1}{2\lambda_{\Theta}} \left\Vert \Theta \right\Vert ^{2} +c \\
-&\simeq -\lambda_{\Theta} \left\Vert \Theta \right\Vert ^{2} +c
+&\simeq -\frac{1}{2}\lambda_{\Theta} \left\Vert \Theta \right\Vert ^{2} +c
 
 \end{align*}
 $$
@@ -162,13 +162,13 @@ To sum it all up, the optimization problem will be:
 $$\begin{align*}
 \text{BPR-OPT} &:= \arg\max_{\Theta} \  \ln{p(\Theta|>_u)} \\
 &= \arg\max_{\Theta} \  \ln{p(>_u \mid \Theta) p(\Theta)} \\
-&= \arg\max_{\Theta} \sum_{(u,i,j) \in D_S } \ln{\sigma (\hat{x}_{uij})} - \lambda_{\Theta} \left\Vert \Theta \right\Vert ^{2}
+&= \arg\max_{\Theta} \sum_{(u,i,j) \in D_S } \ln{\sigma (\hat{x}_{uij})} - \frac{1}{2} \lambda_{\Theta} \left\Vert \Theta \right\Vert ^{2}
 \end{align*}$$
 
 The maximum a posterior is the same as minimizing minus the posterior. So the target problem now becomes minimizing the negative posterior:
 
 $$\begin{align*}
-J(\Theta) &= \arg\min_{\Theta} \sum_{(u,i,j) \in D_S } -\ln{\sigma (\hat{x}_{uij})} + \lambda_{\Theta} \left\Vert \Theta \right\Vert ^{2} \\
+J(\Theta) &= \arg\min_{\Theta} \sum_{(u,i,j) \in D_S } -\ln{\sigma (\hat{x}_{uij})} + -\frac{1}{2}\lambda_{\Theta} \left\Vert \Theta \right\Vert ^{2} \\
 &= \arg\min_{x_u, y_i, y_j} \sum_{(u,i,j) \in D_S } -\ln{\frac{1}{1 + e^{-(\hat{x_{uij}}) }}} + \frac{\lambda_{\Theta} \left\Vert x_u \right\Vert ^{2}}{2} + \frac{\lambda_{\Theta} \left\Vert y_i \right\Vert ^{2}}{2} + \frac{\lambda_{\Theta} \left\Vert y_j \right\Vert ^{2}}{2}
 \end{align*}$$
 
