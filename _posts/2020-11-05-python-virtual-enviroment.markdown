@@ -5,7 +5,7 @@ excerpt: "It's too bad every package is installed in the default system of Pytho
 categories:
     - Python
 tags:
-    - Python
+    - python
 comments: true
 permalink: blogs/venv-python
 

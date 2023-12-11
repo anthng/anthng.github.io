@@ -5,8 +5,8 @@ excerpt: "PCA - A well-known dimensionality reduction"
 categories:
     - Data
 tags:
-    - Data
-    - Python
+    - data
+    - python
 comments: true
 permalink: blogs/pca-python
 

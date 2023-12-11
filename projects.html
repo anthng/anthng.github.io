@@ -4,7 +4,7 @@ title: Projects
 --- 
 
 <div class="container">
-  {% for project in site.data.projects | limit: 5%}
+  {% for project in site.data.projects limit: 5%}
     {% include card.html %}
   {% endfor %}
 </div>

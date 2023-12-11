@@ -5,10 +5,9 @@ excerpt: "Time series is a chronological order of observations on a particular v
 categories:
     - Data
 tags:
-    - Data
-    - Forecasting
-    - Python
-    - Time-Series
+    - data
+    - python
+    - timeseries
 comments: true
 permalink: blogs/ts-model1
 

@@ -5,7 +5,7 @@ excerpt: ""
 categories:
     - Python
 tags:
-    - Python
+    - python
 comments: true
 permalink: blogs/venv-inside-nb
 

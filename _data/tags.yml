@@ -1,0 +1,12 @@
+python:
+  name: Python
+data:
+  name: Data
+forecasting:
+  name: Forecasting
+reading:
+  name: Reading
+timeseries:
+  name: Time Series
+recommender:
+  name: Recommender System

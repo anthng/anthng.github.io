@@ -4,5 +4,8 @@
 - name: "Projects"
   link: "/projects"
 
+- name: "Tags"
+  link: "/tags"
+
 - name: "About"
   link: "/about"

@@ -5,8 +5,8 @@ excerpt: "A literature review: 'BPR: Bayesian Personalized Ranking from Implicit
 categories:
     - reading
 tags:
-    - Recommender-System
-    - Reading
+    - recommender
+    - reading
 comments: true
 permalink: blogs/bpr
 
