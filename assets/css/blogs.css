@@ -52,7 +52,7 @@
   
   .card-body span{
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 400;
     margin-right: 5px;
     float:left;
   }
@@ -68,6 +68,7 @@
   .title:hover{
     text-decoration: none;
   }
+
   
   @media only screen and (max-width: 986px) {
   
