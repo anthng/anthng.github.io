@@ -61,11 +61,15 @@ layout: default
     }
 
     span.badge {
-      font-size: 11px;
+      font-size: 12px;
     }
 
     ul li {
       color: black !important;
+    }
+
+    a.tags {
+      text-decoration:none;
     }
 
     .dataframe th, .dataframe td, .dataframe thead th, .dataframe tbody td, .dataframe tfoot td, .dataframe tfoot th {
@@ -92,7 +96,7 @@ layout: default
   <h1>{{ page.title }}</h1>
   <p class="meta">{{ page.date | date_to_string }}</p></small>
   {% for tag in page.tags %}
-  <a href="{{site.url}}{{site.baseurl}}/tags/{{ tag }}">
+  <a class="tags" href="{{site.url}}{{site.baseurl}}/tags/{{ tag }}">
     <span class="badge badge-primary" style="font-weight: 500">{{tag}}</span>
   </a>
   {% endfor %}
