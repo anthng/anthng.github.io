@@ -4,6 +4,8 @@ title: "Fraud in the Digital Age: Enhacing Cybersecurity awareness to Stay Safe 
 excerpt: "Empowering users to stay safe: The role of education and awareness in cybersecurity"
 categories:
   - fraud
+  - safety
+  - cybersecurity
 tags:
   - fraud
   - safety

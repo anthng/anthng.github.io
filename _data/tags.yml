@@ -10,3 +10,9 @@ timeseries:
   name: Time Series
 recommender:
   name: Recommender System
+fraud:
+  name: Fraud
+safety:
+  name: Safety
+cybersecurity:
+  name: Cybersecurity
