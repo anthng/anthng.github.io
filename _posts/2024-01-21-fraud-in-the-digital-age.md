@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fraud in the Digital Age: Enhacing Cybersecurity awareness to Stay Safe Online"
+title: "Fraud in the Digital Age: Enhacing Cybersecurity Awareness to Stay Safe Online"
 excerpt: "Empowering users to stay safe: The role of education and awareness in cybersecurity"
 categories:
   - fraud
